@@ -1,0 +1,3 @@
+miw_producto_nuevo:
+    path:     /new
+    defaults: { _controller: MiwDemoBundle:Producto:new }
