@@ -68,4 +68,18 @@ class ProductoController extends Controller
         
         
     }
+    
+    public function deleteAction($id) {
+        $em = $this->getDoctrine()->getManager();
+        $producto = $em->getRepository('MiwDemoBundle:Producto')->find(intval($id));
+        
+        /*if (isnull($producto)) {
+            throw new Exception("No existe producto con id = " . $id);
+        }*/
+        
+        $em->remove($producto);
+        $em->flush();
+        
+        return $this->redirectToRoute('miw_producto_gets');
+    }
 }

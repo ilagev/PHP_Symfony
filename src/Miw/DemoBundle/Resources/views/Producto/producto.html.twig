@@ -5,4 +5,11 @@
     Nombre:  {{ producto.getNombre() }} <br>
     Descripcion:  {{ producto.getDescripcion() }} <br>
     Precio:  {{ producto.getPrecio() }}
+    
+    <form action="{{ path('miw_producto_delete', {'id': producto.getId() } ) }}" method="POST">
+        
+        <input type="submit" value="Eliminar producto">
+    </form>
+    
+    <a href="{{ path('miw_producto_gets') }}"> Listado de productos</a>
 {% endblock %}

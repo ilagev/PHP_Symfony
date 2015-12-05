@@ -5,6 +5,11 @@ miw_producto_gets:
 miw_producto_nuevo:
     path:     /new
     defaults: { _controller: MiwDemoBundle:Producto:new }
+    
+miw_producto_delete:
+    path:     /delete/{id}
+    defaults: { _controller: MiwDemoBundle:Producto:delete }
+    methods:  [POST]
 
 miw_producto_get:
     path:     /{id}/{format}
