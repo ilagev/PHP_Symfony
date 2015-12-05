@@ -22,4 +22,6 @@ _Pasos_:
 
 5. Conectar Netbeans con bbdd: tab services -> new connection
 6. **doctrine:mapping:import MiwDemoBundle yml --filter Personal**
+7. **doctrine:generate:entities MiwDemoBundle:Persona --path=src**
+8. **doctrine:generate:crud** [shortcut name = MiwDemoBundle:Personal,  yes, yml, enter, enter, enter]
 
