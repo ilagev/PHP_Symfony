@@ -16,9 +16,12 @@ class PersonalType extends AbstractType
     {
         $builder
             ->add('dni')
-            ->add('nombre')
-            ->add('email')
-        ;
+            ->add('nombre', 'text', array(
+                'required' => true
+            ))
+            ->add('email', 'email', array(
+                'label' => 'correo electronico'
+            ));
     }
     
     /**
