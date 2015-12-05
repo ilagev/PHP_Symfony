@@ -27,7 +27,7 @@ class Personal
      */
     private $email;
 
-
+    private $contador;
     /**
      * Get id
      *
@@ -109,5 +109,28 @@ class Personal
     {
         return $this->email;
     }
-}
 
+    /**
+     * Set contador
+     *
+     * @param integer $contador
+     *
+     * @return Personal
+     */
+    public function setContador($contador)
+    {
+        $this->contador = $contador;
+
+        return $this;
+    }
+
+    /**
+     * Get contador
+     *
+     * @return integer
+     */
+    public function getContador()
+    {
+        return $this->contador;
+    }
+}

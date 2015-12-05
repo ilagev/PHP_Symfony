@@ -32,4 +32,9 @@ Miw\DemoBundle\Entity\Personal:
             length: 45
             options:
                 fixed: false
+        contador:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
     lifecycleCallbacks: {  }

@@ -15,8 +15,9 @@ _De entidades a bbdd_
     * crear DemoBundle/Resources/config/routing_producto.yml con miw_producto_nuevo + miw_producto_get + etc.
     * comprobar OK: **debug:router**
 4. Generar BBDD
-    * **doctrine:schema:validate**
-    * **doctrine:schema::update** (1o --dump, 2o --force)
+    * [CHECK] **doctrine:mapping:info** ----> mira si php == yml
+    * [CHECK] **doctrine:schema:validate** -> mira si yml == bbdd
+    * **doctrine:schema:update** (1o --dump, 2o --force)
 
 _Ahora al reves: de bbdd a entidades_
 
