@@ -28,3 +28,7 @@ _Generar CRUD_
 7. **doctrine:generate:entities** MiwDemoBundle:Personal --path=src
 8. **doctrine:generate:crud** [shortcut name = MiwDemoBundle:Personal,  yes, yml, enter, enter, enter]
 
+_Paginacion_
+
+9. https://github.com/KnpLabs/KnpPaginatorBundle
+

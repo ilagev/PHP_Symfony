@@ -4,6 +4,7 @@ namespace Miw\DemoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use \Symfony\Component\HttpFoundation\Response;
+use \Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -16,12 +17,24 @@ class ProductoController extends Controller
     /*
      * Recupera listado de productos
      */
-    public function cgetAction() {
-        $productos = $this
+    public function cgetAction(Request $request) {
+        
+        $em    = $this->getDoctrine()->getManager();
+        $dql   = "SELECT a FROM MiwDemoBundle:Producto a";
+        $query = $em->createQuery($dql);
+        
+        $paginator = $this->get('knp_paginator');
+        $productos = $paginator->paginate(
+            $query,                              /* query NOT result */
+            $request->query->getInt('page', 1),  /* page number*/
+            8                                    /* limit per page*/
+        );
+        
+        /*$productos = $this
                 ->getDoctrine()
                 ->getManager()
                 ->getRepository('MiwDemoBundle:Producto')
-                ->findAll();
+                ->findAll();*/
         
         return $this->render('MiwDemoBundle:Producto:listado.html.twig', array(
             'productos' => $productos

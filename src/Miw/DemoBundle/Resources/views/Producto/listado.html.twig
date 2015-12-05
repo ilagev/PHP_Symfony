@@ -1,16 +1,28 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
+    
+    <p> Total productos: {{ productos.getTotalItemCount }} </p>
+    
     <table align='center'>
+        
         <tr>
+            {# sorting of properties based on query components #}
+            <th>{{ knp_pagination_sortable(productos, 'Id', 'a.id') }}</th>
+            <th{% if productos.isSorted('a.nombre') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(productos, 'Nombre', 'a.nombre') }}</th>
+            <th{% if productos.isSorted('a.precio') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(productos, 'Precio', 'a.precio') }}</th>
+            <th{% if productos.isSorted('a.descripcion') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(productos, 'Descripcion', 'a.descripcion') }}</th>
+        </tr>
+        
+        <!--<tr>
             <th>Id</th>
             <th>Nombre</th>
             <th>Precio</th>
             <th>Descripcion</th>   
-        </tr>
+        </tr> -->
         
         {% for producto in productos %}
-            <tr>
+            <tr {% if loop.index is odd %}class="color"{% endif %}>
                 <td>
                     <a href='{{ path('miw_producto_get', {'id' : producto.getId()}  ) }}'> {{ producto.getId() }} </a>
                 </td>
@@ -19,6 +31,11 @@
                 <td>{{ producto.getDescripcion() }}</td>
             </tr>
         {% endfor %}
+        <tr>
+            <td style="text-align: center" colspan="4">
+                {{ knp_pagination_render(productos) }}
+            </td>
+        </tr>
         
     </table>
 {% endblock %}
