@@ -1,3 +1,11 @@
+miw_producto_gets:
+    path:     /
+    defaults: { _controller: MiwDemoBundle:Producto:cget }
+
 miw_producto_nuevo:
     path:     /new
     defaults: { _controller: MiwDemoBundle:Producto:new }
+
+miw_producto_get:
+    path:     /{id}/{format}
+    defaults: { _controller: MiwDemoBundle:Producto:get, format: html }

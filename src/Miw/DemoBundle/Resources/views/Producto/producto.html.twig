@@ -1,0 +1,8 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    Id:  {{ producto.getId() }} <br>
+    Nombre:  {{ producto.getNombre() }} <br>
+    Descripcion:  {{ producto.getDescripcion() }} <br>
+    Precio:  {{ producto.getPrecio() }}
+{% endblock %}

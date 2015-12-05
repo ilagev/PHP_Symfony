@@ -1,0 +1,24 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <table align='center'>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Descripcion</th>   
+        </tr>
+        
+        {% for producto in productos %}
+            <tr>
+                <td>
+                    <a href='{{ path('miw_producto_get', {'id' : producto.getId()}  ) }}'> {{ producto.getId() }} </a>
+                </td>
+                <td>{{ producto.getNombre() }}</td>
+                <td>{{ producto.getPrecio() }}</td>
+                <td>{{ producto.getDescripcion() }}</td>
+            </tr>
+        {% endfor %}
+        
+    </table>
+{% endblock %}
